@@ -64,7 +64,7 @@ class Client:
 
                 # Update the cached flags with their latest version.
                 for new_flag in new_flags:
-                    if new_flag.is_deleted:
+                    if new_flag.is_deleted and new_flag.name in self._flags:
                         del self._flags[new_flag.name]
                     else:
                         self._flags[new_flag.name] = new_flag
